@@ -1,6 +1,6 @@
-OS = LINUX
+#OS = LINUX
 #OS = WINDOWS
-#OS = MACOS
+OS = MACOS
 
 ifeq ($(OS), LINUX)
 TARGET = phazerville_screencapture
@@ -12,7 +12,7 @@ LIBS = `$(WXCONFIG) --libs` -ludev -lX11
 else ifeq ($(OS), MACOS)
 TARGET = phazerville_screencapture.app
 CXX = g++
-WXCONFIG = ~/wxwidgets/3.2.4.mac64.teensy/bin/wx-config
+WXCONFIG = /opt/homebrew/Cellar/wxwidgets/3.2.4/bin/wx-config
 CPPFLAGS = -O2 -Wall `$(WXCONFIG) --cppflags` -D$(OS) -Wno-c++11-extensions
 LIBS = `$(WXCONFIG) --libs` -framework IOKit -framework CoreFoundation
 
@@ -53,8 +53,7 @@ phazerville_screencapture.app: phazerville_screencapture $(OBJS) Info.plist
 	cp Info.plist $@/Contents
 	cp icon/icon.png $@/Contents/Resources
 	/bin/echo -n 'APPL????' > $@/Contents/PkgInfo
-	-pjrcmacsigntool $@
-	-scp -r phazerville_screencapture.app macair:
+
 
 clean:
 	rm -f *.o phazerville_screencapture phazerville_screencapture.exe
