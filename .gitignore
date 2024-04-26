@@ -1,7 +1,4 @@
 gui.o
-phazerville_screencapture
 usb.o
-phazerville_screencapture.app/Contents/Info.plist
-phazerville_screencapture.app/Contents/PkgInfo
-phazerville_screencapture.app/Contents/MacOS/phazerville_screencapture
-phazerville_screencapture.app/Contents/Resources/icon.png
+phazerville_screencapture
+phazerville_screencapture.app
