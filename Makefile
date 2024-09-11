@@ -12,7 +12,7 @@ LIBS = `$(WXCONFIG) --libs` -ludev -lX11
 else ifeq ($(OS), MACOS)
 TARGET = phazerville_screencapture.app
 CXX = g++
-WXCONFIG = /opt/homebrew/Cellar/wxwidgets/3.2.4/bin/wx-config
+WXCONFIG = /opt/homebrew/Cellar/wxwidgets/3.2.6/bin/wx-config
 CPPFLAGS = -O2 -Wall `$(WXCONFIG) --cppflags` -D$(OS) -Wno-c++11-extensions
 LIBS = `$(WXCONFIG) --libs` -framework IOKit -framework CoreFoundation
 
