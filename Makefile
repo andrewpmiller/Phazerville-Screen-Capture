@@ -13,10 +13,10 @@ else ifeq ($(OS), MACOS)
 TARGET = phazerville_screencapture.app
 CXX = g++
 WXCONFIG = /opt/homebrew/Cellar/wxwidgets/3.2.6/bin/wx-config
-# CPPFLAGS = -O2 -Wall `$(WXCONFIG) --cppflags` -D$(OS) -Wno-c++11-extensions
-# LIBS = `$(WXCONFIG) --libs` -framework IOKit -framework CoreFoundation
-#WXCONFIG = ~/wxwidgets/3.2.6.macos.teensy/bin/wx-config
-ARCH = -mmacosx-version-min=10.10 -arch x86_64 -arch arm64
+
+#ARCH = -mmacosx-version-min=10.10 -arch x86_64 -arch arm64    
+# NOTE: Including the Intel "x86_64" flag throws an error when compiling on Apple Silicon
+ARCH = -mmacosx-version-min=10.10 -arch arm64
 CPPFLAGS = -O2 -Wall `$(WXCONFIG) --cppflags` $(ARCH) -D$(OS) -Wno-c++11-extensions
 LIBS = `$(WXCONFIG) --libs` $(ARCH) -framework IOKit -framework CoreFoundation
 
